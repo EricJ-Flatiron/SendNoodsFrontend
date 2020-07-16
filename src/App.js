@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import './App.css';
-import Login from './components/auth/login.js';
+import Login from './components/auth/Login.js';
 import SignUp from './components/auth/SignUp.js';
 
 class App extends React.Component {
@@ -40,6 +40,12 @@ class App extends React.Component {
             <SignUp>
 
             </SignUp>}>
+          </Route>
+
+          <Route exact path="/login" component={() => 
+            <Login handleStateChange={this.handleStateChanges}>
+
+            </Login>}>
           </Route>
     
     

@@ -18,7 +18,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Send Noods
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -49,7 +49,7 @@ export default function SignUp() {
           }
         })
     }
-    console.log(options)
+    // console.log(options)
     fetch('http://localhost:3001/signup', options)
   }
 
