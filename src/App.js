@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import './App.css';
 import Login from './components/auth/Login.js';
 import SignUp from './components/auth/SignUp.js';
+import Home from './components/Home.js';
+import Profile from './components/Profile.js'
 
 class App extends React.Component {
 
@@ -29,17 +31,26 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.state.isLoading
-        ? <h4> Loading... </h4>
+        ? <h4> Spicy Noodles Incoming... </h4>
         :<Router>
 
-          <Route exact path="/">
-
+          <Route exact path="/profile" component={() => 
+            this.state.token ?
+            <Profile
+              user={this.state.user}
+            /> : <Redirect to='/login'/>}> 
           </Route>
 
-          <Route exact path="/signup" component={() => 
-            <SignUp>
+          <Route exact path="/" component={() => 
+            <Home/>}>
+          </Route>
 
-            </SignUp>}>
+          <Route exact path="/home" component={() => 
+            <Home/>}>
+          </Route>
+
+          <Route exact path="/signup" component={() =>
+            <SignUp/>}>
           </Route>
 
           <Route exact path="/login" component={() => 
