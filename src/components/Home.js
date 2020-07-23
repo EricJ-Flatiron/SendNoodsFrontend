@@ -1,32 +1,45 @@
 import React from 'react';
-// import Button from '@material-ui/core/Button';
+import ButtonAppBar from './ButtonAppBar.js';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1540162416395-16f7dfbb68d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
-
+  wood: {
+    backgroundImage: 'url(https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }
 }));
 
 export default function Home() {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <Grid container component="main" className={classes.root}>
-        <CssBaseline />
-            <Grid item xs={false} sm={4} md={7} className={classes.image} />
-        </Grid> 
-    );
+  return (
+    <div>
+      <ButtonAppBar></ButtonAppBar>
+      <CssBaseline />
+      <Grid container component="main" className={classes.root}>
+        <Grid item  xl={6} className={classes.image}/>
+        <Grid item  xl={6} className={classes.wood}>
+        
+      </Grid> 
+      </Grid>
+    </div>
+  );
 }

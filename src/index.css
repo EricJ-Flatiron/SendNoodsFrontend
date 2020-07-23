@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* .parent {
+  display: grid;
+  grid-template-columns: .1fr repeat(2, 1fr) .1fr;
+  grid-template-rows: .3fr .2fr 2fr .2fr .4fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .div1 { grid-area: 5 / 1 / 6 / 5; }
+  .div2 { grid-area: 1 / 1 / 2 / 5; }
+  .div3 { grid-area: 3 / 2 / 4 / 3; }
+  .div4 { grid-area: 3 / 3 / 4 / 4; } */
