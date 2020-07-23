@@ -42,11 +42,11 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/" component={() => 
-            <Home/>}>
+            <Home user={this.state.user} token={this.state.token}/>}>
           </Route>
 
           <Route exact path="/home" component={() => 
-            <Home/>}>
+            <Home user={this.state.user} token={this.state.token}/>}>
           </Route>
 
           <Route exact path="/signup" component={() =>
@@ -54,7 +54,7 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/login" component={() => 
-            <Login handleStateChange={this.handleStateChanges}>
+            <Login user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}>
 
             </Login>}>
           </Route>

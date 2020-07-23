@@ -11,7 +11,8 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Container from '@material-ui/core/Container'; 
+import ButtonAppBar from '../ButtonAppBar.js';
 
 function Copyright() {
   return (
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login(props) {
+export default function Login(loginProps) {
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -71,14 +72,17 @@ export default function Login(props) {
     .then(userInfo => {
         localStorage.token = userInfo.token
         localStorage.setItem("user", JSON.stringify({...userInfo}))
-        props.handleStateChange("token", userInfo.token)
-        props.handleStateChange("user", userInfo)
+        loginProps.handleStateChange("token", userInfo.token)
+        loginProps.handleStateChange("user", userInfo)
         // this.props.history.push('/dashboard')
     })
   }
 
   return (
+    <div>
+    <ButtonAppBar props={loginProps}></ButtonAppBar>
     <Container component="main" maxWidth="xs">
+      
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -146,5 +150,6 @@ export default function Login(props) {
         <Copyright />
       </Box>
     </Container>
+    </div>
   );
 }
