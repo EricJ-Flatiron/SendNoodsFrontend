@@ -5,6 +5,7 @@ import Login from './components/auth/Login.js';
 import SignUp from './components/auth/SignUp.js';
 import Home from './components/Home.js';
 import Profile from './components/Profile.js'
+import Logout from './components/auth/Logout';
 
 class App extends React.Component {
 
@@ -31,35 +32,40 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.state.isLoading
-        ? <h4> Spicy Noodles Incoming... </h4>
+        ? <h4> Hot Noods Incoming... </h4>
         :<Router>
 
           <Route exact path="/profile" component={() => 
             this.state.token ?
-            <Profile
-              user={this.state.user}
-            /> : <Redirect to='/login'/>}> 
+            <Profile user={this.state.user} token={this.state.token}/> 
+            : <Redirect to='/login'/>}> 
           </Route>
 
           <Route exact path="/" component={() => 
-            <Home user={this.state.user} token={this.state.token}/>}>
+            <Home user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>}>
           </Route>
 
           <Route exact path="/home" component={() => 
-            <Home user={this.state.user} token={this.state.token}/>}>
+            <Home user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>}>
           </Route>
 
           <Route exact path="/signup" component={() =>
-            <SignUp/>}>
+            this.state.token !== undefined ?
+            <Home user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
+            : <SignUp handleStateChange={this.handleStateChanges}/>}>
           </Route>
 
           <Route exact path="/login" component={() => 
-            <Login user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}>
-
-            </Login>}>
+            this.state.token !== undefined ?
+            <Home user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
+            : <Login handleStateChange={this.handleStateChanges}/>}>
           </Route>
     
-    
+          <Route exact path="/logout" component={() => 
+            <Logout handleStateChange={this.handleStateChanges}/>
+          }>
+            
+          </Route>
     
     
         </Router>

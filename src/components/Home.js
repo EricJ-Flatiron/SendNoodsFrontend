@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   wood: {
-    backgroundImage: 'url(https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1525973779373-015bdf68e579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -30,18 +30,17 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Home(homeProps) {
+export default function Home(props) {
   const classes = useStyles();
 
   return (
     <div>
-      <ButtonAppBar props={homeProps}></ButtonAppBar>
+      {/* {console.log(props.user)} */}
+      <ButtonAppBar token={props.token}/>
       <CssBaseline />
       <Grid container component="main" className={classes.root}>
         <Grid item  xl={6} className={classes.image}/>
-        <Grid item  xl={6} className={classes.wood}>
-        
-      </Grid> 
+        <Grid item  xl={6} className={classes.wood}/>
       </Grid>
     </div>
   );

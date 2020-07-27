@@ -3,8 +3,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container'; 
 import ButtonAppBar from '../ButtonAppBar.js';
+import { useHistory } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -52,6 +53,8 @@ export default function Login(loginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const history = useHistory();
+  
   const submit = (e) => {
     e.preventDefault()
     const options = {
@@ -70,11 +73,13 @@ export default function Login(loginProps) {
     fetch('http://localhost:3001/login', options)
     .then(res => res.json())
     .then(userInfo => {
+        console.log(userInfo)
+        // this is where I'll check if credentials are guuuuud
         localStorage.token = userInfo.token
         localStorage.setItem("user", JSON.stringify({...userInfo}))
         loginProps.handleStateChange("token", userInfo.token)
         loginProps.handleStateChange("user", userInfo)
-        // this.props.history.push('/dashboard')
+        history.push("/home");
     })
   }
 
@@ -89,7 +94,7 @@ export default function Login(loginProps) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Log In for NSFW Noods
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -118,10 +123,10 @@ export default function Login(loginProps) {
             autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <FormControlLabel
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
-          />
+          /> */}
           <Button
             type="submit"
             fullWidth

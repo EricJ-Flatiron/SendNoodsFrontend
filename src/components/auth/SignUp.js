@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import ButtonAppBar from '../ButtonAppBar.js';
+import { useHistory } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -26,12 +28,14 @@ function Copyright() {
   );
 }
 
-export default function SignUp() {
+export default function SignUp(signupProps) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+
+  const history = useHistory();
 
   const submit = (e) => {
     e.preventDefault()
@@ -51,6 +55,7 @@ export default function SignUp() {
     }
     // console.log(options)
     fetch('http://localhost:3001/signup', options)
+    history.push("/login");
   }
 
   const useStyles = makeStyles((theme) => ({
@@ -76,6 +81,8 @@ export default function SignUp() {
   
     const classes = useStyles();
     return (
+      <div>
+        <ButtonAppBar props={signupProps}></ButtonAppBar>
         <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -83,7 +90,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-                Sign Up
+                Sign Up for Hot, Unsolicited Noodles
             </Typography>
             <form className={classes.form} noValidate>
             <Grid container spacing={2}>
@@ -169,5 +176,6 @@ export default function SignUp() {
             <Copyright />
         </Box>
         </Container>
+      </div>
     )
 }
