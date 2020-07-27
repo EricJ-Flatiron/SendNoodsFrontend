@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 0
   },
   bar: {
-    height: 85
+    height: 60
   },
 }));
 

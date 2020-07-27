@@ -62,12 +62,9 @@ class App extends React.Component {
           </Route>
     
           <Route exact path="/logout" component={() => 
-            <Logout handleStateChange={this.handleStateChanges}/>
-          }>
-            
+            <Logout handleStateChange={this.handleStateChanges}/>}>
           </Route>
-    
-    
+          
         </Router>
         }  
       </div>
