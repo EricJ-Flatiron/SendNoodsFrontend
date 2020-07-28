@@ -60,13 +60,13 @@ class App extends React.Component {
 
           <Route exact path="/login" component={() => 
             this.state.token !== undefined ?
-            <Order user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
+            <Home user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
             : <Login handleStateChange={this.handleStateChanges}/>}>
           </Route>
 
           <Route exact path="/order" component={() => 
             this.state.token !== undefined ?
-            <Home user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
+            <Order user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
             : <Login handleStateChange={this.handleStateChanges}/>}>
           </Route>
     
