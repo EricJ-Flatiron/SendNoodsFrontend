@@ -5,7 +5,11 @@ import Login from './components/auth/Login.js';
 import SignUp from './components/auth/SignUp.js';
 import Home from './components/Home.js';
 import Profile from './components/Profile.js'
-import Logout from './components/auth/Logout';
+import Logout from './components/auth/Logout.js';
+import Order from './components/Order.js';
+import { loadStripe } from "@stripe/stripe-js";
+
+const promise = loadStripe("pk_test_51H9voND7h6J7ftZvWesW0Ak9dpg5Q6sKyjwG6KgHgkmToaqJQC7QcS25pr9PRGekpAwIgKIfliVBw71q4IsCApyw00KxLMKKCD");
 
 class App extends React.Component {
 
@@ -26,8 +30,7 @@ class App extends React.Component {
       [key]: value
     })
   }
-
-
+  
   render() {
     return (
       <div className="App">
@@ -57,6 +60,12 @@ class App extends React.Component {
 
           <Route exact path="/login" component={() => 
             this.state.token !== undefined ?
+            <Order user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
+            : <Login handleStateChange={this.handleStateChanges}/>}>
+          </Route>
+
+          <Route exact path="/order" component={() => 
+            this.state.token !== undefined ?
             <Home user={this.state.user} token={this.state.token} handleStateChange={this.handleStateChanges}/>
             : <Login handleStateChange={this.handleStateChanges}/>}>
           </Route>
@@ -64,7 +73,7 @@ class App extends React.Component {
           <Route exact path="/logout" component={() => 
             <Logout handleStateChange={this.handleStateChanges}/>}>
           </Route>
-          
+
         </Router>
         }  
       </div>

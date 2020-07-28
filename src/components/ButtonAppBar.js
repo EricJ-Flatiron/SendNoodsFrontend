@@ -7,8 +7,6 @@ import SignupButton from './buttons/SignupButton.js';
 import LogoutButton from './buttons/LogoutButton.js';
 import ProfileButton from './buttons/ProfileButton.js';
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 0
