@@ -39,8 +39,8 @@ export default function Home(props) {
       <ButtonAppBar token={props.token}/>
       <CssBaseline />
       <Grid container component="main" className={classes.root}>
-        <Grid item  xl={6} className={classes.image}/>
-        <Grid item  xl={6} className={classes.wood}/>
+        <Grid item xl={6} className={classes.image}/>
+        <Grid item xl={6} className={classes.wood}/>
       </Grid>
     </div>
   );

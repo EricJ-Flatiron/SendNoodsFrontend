@@ -9,10 +9,10 @@ import ProfileButton from './buttons/ProfileButton.js';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 0
+    flexGrow: 1
   },
   bar: {
-    height: 60
+    height: 68
   },
 }));
 
@@ -33,6 +33,7 @@ export default function ButtonAppBar(props) {
           <LogoutButton/>
           <ProfileButton/>
         </Toolbar>}
+        
     </div>
   );
 }

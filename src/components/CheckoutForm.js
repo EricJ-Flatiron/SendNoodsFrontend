@@ -62,7 +62,7 @@ export default function CheckoutForm(props) {
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <CardElement id="card-element" options={cardStyle}  />
-      <button id="submit">Pay</button>
+      <button id="pay-button" >Pay</button>
     </form>
   );
 }
