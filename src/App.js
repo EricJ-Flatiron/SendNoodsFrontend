@@ -7,9 +7,6 @@ import Home from './components/Home.js';
 import Profile from './components/Profile.js'
 import Logout from './components/auth/Logout.js';
 import Order from './components/Order.js';
-import { loadStripe } from "@stripe/stripe-js";
-
-const promise = loadStripe("pk_test_51H9voND7h6J7ftZvWesW0Ak9dpg5Q6sKyjwG6KgHgkmToaqJQC7QcS25pr9PRGekpAwIgKIfliVBw71q4IsCApyw00KxLMKKCD");
 
 class App extends React.Component {
 
