@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -66,19 +66,21 @@ export default function Order(orderProps) {
     <div>
     <ButtonAppBar token={orderProps.token}/>
     <Grid container className={classes.root3}>
+    <CssBaseline />
     <Grid container className={classes.root} spacing={4}>
       <Grid container justify="center" spacing={4}>
         {/* Noodle0 */}
         <Grid item>
           <br></br><br></br><br></br>
           <Paper className={classes.paper} elevation={0}>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-            <FormLabel component="legend">Quantity</FormLabel>
+            <img src="https://ramen-tatsuya.com/wp-content/uploads/2017/07/OG6.jpg" align="center"/>
+            <h2>NAKED TONKOTSU</h2><Typography>pork bone broth, chashu, ajitama, woodear mushroom, scallion</Typography>
+            <br></br><br></br>
+            <FormLabel component="legend">$12.00</FormLabel>
             <RadioGroup name="noodleZero" aria-label="noodleZero" value={noodleZero} onChange={handleChangeZero} row>
-              {[-1, 0, 1, 2, 3].map((value) => (
+              {[-1, 1, 2, 3, 4].map((value) => (
                 (value === -1) ?
-                <p className="description">-------</p>
+                <p className="description">-----------</p>
               :<FormControlLabel value={value.toString()} control={<Radio color={'default'}/>} label={value.toString()}/>
               ))}
             </RadioGroup>
@@ -88,13 +90,14 @@ export default function Order(orderProps) {
         <Grid item>
           <br></br><br></br><br></br>
           <Paper className={classes.paper} elevation={24}>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-            <FormLabel component="legend">Quantity</FormLabel>
+          <img src="https://ramen-tatsuya.com/wp-content/uploads/2017/07/Miso-not.jpg" align="center"/>
+            <h2>MI-SO-HOT</h2><Typography>pork bone broth, spicy miso blend, goma pork, ajitama, scallion, napa cabbage, bean sprout, corn</Typography>
+            <br></br>
+            <FormLabel component="legend">$13.00</FormLabel>
             <RadioGroup defaultValue={0} value={noodleOne} onChange={setNoodleOne} row>
-              {[-1, 0, 1, 2, 3].map((value) => (
+              {[-1, 1, 2, 3, 4].map((value) => (
                 (value === -1) ?
-                <p className="description">-------</p>
+                <p className="description">-----------</p>
                 :<FormControlLabel value={value.toString()} control={<Radio />} label={value.toString()}/>
               ))}
             </RadioGroup>
@@ -104,13 +107,14 @@ export default function Order(orderProps) {
         <Grid item>
           <br></br><br></br><br></br>
           <Paper className={classes.paper} elevation={24}>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-            <FormLabel component="legend">Quantity</FormLabel>
+          <img src="https://ramen-tatsuya.com/wp-content/uploads/2017/07/OlSkool2.jpg" align="center"/>
+            <h2>BARE ESSENTIALS</h2><Typography>chicken shoyu broth, chashu, ajitama, menma, scallion, white onion, nori, pepper</Typography>
+            <br></br><br></br>
+            <FormLabel component="legend">$11.50</FormLabel>
             <RadioGroup defaultValue={0} value={noodleTwo} onChange={setNoodleTwo} row>
-              {[-1, 0, 1, 2, 3].map((value) => (
+              {[-1, 1, 2, 3, 4].map((value) => (
                 (value === -1) ?
-                <p className="description">-------</p>
+                <p className="description">-----------</p>
                 :<FormControlLabel value={value.toString()} control={<Radio />} label={value.toString()}/>
               ))}
             </RadioGroup>
@@ -120,13 +124,14 @@ export default function Order(orderProps) {
         <Grid item>
           <br></br><br></br><br></br>
           <Paper className={classes.paper} elevation={24}>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-            <FormLabel component="legend">Quantity</FormLabel>
+          <br/><img src="https://ramen-tatsuya.com/wp-content/uploads/2020/02/RTY-veggie-bowl-updated.jpg" align="center"/><br/>
+            <h2>CUTE VEGAN</h2><Typography>soy and mushroom broth, tofu, brussels sprouts, corn, menma, woodear mushroom, greens</Typography>
+            <br/>
+            <FormLabel component="legend">$12.00</FormLabel>
             <RadioGroup defaultValue={0} value={noodleThree} onChange={setNoodleThree} row>
-              {[-1, 0, 1, 2, 3].map((value) => (
+              {[-1, 1, 2, 3, 4].map((value) => (
                 (value === -1) ?
-                <p className="description">-------</p>
+                <p className="description">-----------</p>
                 :<FormControlLabel value={value.toString()} control={<Radio />} label={value.toString()}/>
               ))}
             </RadioGroup>
