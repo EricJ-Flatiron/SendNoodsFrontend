@@ -49,6 +49,8 @@ export default function Profile(props) {
   const classes = useStyles();
   const address = props.user.addresses[0];
   const user = props.user;
+  const orders = props.user.orders
+  const lastOrder = orders[orders.length-1]
 
   return (
     <div>
@@ -74,9 +76,6 @@ export default function Profile(props) {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <HomeOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5" gutterBottom={true}>
             Your Kingdom's Details
           </Typography>
@@ -88,6 +87,13 @@ export default function Profile(props) {
           </Typography>
           <Typography component="h1" variant="h6" gutterBottom={true}>
             {address.city + ", " + address.state + " " + address.zip}
+          </Typography>
+          <br/><br/>
+          <Typography component="h1" variant="h5" gutterBottom={true}>
+            Your Most Recent Order
+          </Typography>
+          <Typography component="h1" variant="h6" gutterBottom={true}>
+            ${lastOrder.cost} of dope noodles ordered on {lastOrder.created_at.substring(0,10)}
           </Typography>
         </div>
       </Grid>

@@ -1,10 +1,13 @@
 import React from 'react';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
+import { useHistory } from "react-router-dom";
 // import CardSection from './CardSection';
 
 export default function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();
+  const user = props.user
+  const history = useHistory();
 
   const cardStyle = {
     style: {
@@ -40,15 +43,18 @@ export default function CheckoutForm(props) {
     })
     .then(res => res.json())
     .then(secretObj => {
-      console.log(secretObj.clientSecret)
+      // console.log(secretObj.clientSecret)
       stripe.confirmCardPayment( secretObj.clientSecret , {
         payment_method: {
           card: elements.getElement(CardElement),
           billing_details: {
-            name: 'Jenny Rosen',
+            name: `${user.firstName} ${user.lastName}`,
           },
         }
       });
+      setTimeout(() => {
+        history.push('/profile')
+      },3000)
     })
 
     // if (result.error) {

@@ -3,6 +3,9 @@ import ButtonAppBar from './ButtonAppBar.js';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
+import { withStyles } from "@material-ui/core/styles";
+import OrderButton from './buttons/OrderButton.js';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Typography);
+
 export default function Home(props) {
   const classes = useStyles();
 
@@ -40,7 +49,14 @@ export default function Home(props) {
       <CssBaseline />
       <Grid container component="main" className={classes.root}>
         <Grid item xl={6} className={classes.image}/>
-        <Grid item xl={6} className={classes.wood}/>
+        <Grid item xl={6} className={classes.wood}>
+          <br/><br/>
+          <WhiteTextTypography variant='h3' color='secondary'>Welcome to Send Noods</WhiteTextTypography>
+          <br/><br/>
+          <WhiteTextTypography variant="h4" color="secondary">Your favorite traditional noodle peddler without clothes!</WhiteTextTypography>
+          <br/><br/>
+          <OrderButton></OrderButton>
+        </Grid>
       </Grid>
     </div>
   );
